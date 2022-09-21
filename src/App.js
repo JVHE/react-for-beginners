@@ -1,29 +1,26 @@
 import { useState, useEffect } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [keyword, setKeyword] = useState('');
-  const onClick = () => setCount((c) => c + 1);
-  const onChange = (e) => setKeyword(e.target.value);
-  useEffect(() => {
-    console.log("I run only once");
-  }, []);
-  useEffect(() => {
-    console.log("I run only when keyword changes");
-  }, [keyword]);
-  useEffect(() => {
-    console.log("I run only when count changes");
-  }, [count]);
-  useEffect(() => {
-    console.log("I run only when keyword or count changes");
-  }, [keyword, count]);
+  const [showing, setShowing] = useState(false);
+  const onClick = () => setShowing(prev => !prev);
   return (
     <div>
-      <input type="text" placeholder='Search here...' onChange={onChange} />
-      <h1>Count: {count}</h1>
-      <button onClick={onClick}>Increment</button>
+      {showing ? <Hello /> : null}
+      <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
     </div>
   );
+}
+
+function Hello() {
+  function hiFn() {
+    console.log("created");
+    return byFn
+  }
+  function byFn() {
+    console.log("destroyed");
+  }
+  useEffect(hiFn, []);
+  return <h1>Hello</h1>;
 }
 
 export default App;
