@@ -25,7 +25,7 @@ function Home() {
     <div>
       <h1>Movies</h1>
         {movies.map(movie => (
-          <Movie key={movie.id} genres={movie.genres} title={movie.title} year={movie.year} summary={movie.summary} medium_cover_image={movie.medium_cover_image} />
+          <Movie key={movie.id} id={movie.id} genres={movie.genres} title={movie.title} year={movie.year} summary={movie.summary} medium_cover_image={movie.medium_cover_image} />
         ))}
     </div>
   );
