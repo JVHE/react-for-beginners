@@ -24,8 +24,10 @@ function App() {
           value={toDo}
           type="text"
           placeholder="Write your todo" />
-          <button>Add To Do</button>
+        <button>Add To Do</button>
       </form>
+      <hr />
+      {toDoList.map((item, index) => <li key={index}>{item}</li>)}
     </div>
   );
 }
